@@ -1,0 +1,23 @@
+.container {
+    min-height: 100vh;
+    background-color: #282c34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerContainer {
+    min-width: 200px;
+    width: 30vw;
+    border: 1px solid;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.buttonContainer {
+    margin: 25px;
+}

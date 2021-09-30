@@ -1,0 +1,36 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../../assets/collage4.jpg");
+}
+
+.buttonHeader {
+    display: flex;
+    min-width: 330px;
+    width: 50vw;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.listContainer {
+    min-width: 330px;
+    width: 50vw;
+    background-color: white;
+    margin-bottom: 15px;
+}
+
+.innerContainer {
+    background-color: #282c34;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 20px 20px 5px 20px;
+}
+
+.nowPlayingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
