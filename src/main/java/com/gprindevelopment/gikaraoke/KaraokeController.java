@@ -31,6 +31,7 @@ public class KaraokeController {
     @ResponseStatus(HttpStatus.CREATED)
     public void addSong(@RequestBody SongRequest songRequest) {
         karaokeQueueService.addSong(songRequest);
+        simpMessagingTemplate.convertAndSend("/topic/update", "Update!");
     }
 
     @GetMapping
