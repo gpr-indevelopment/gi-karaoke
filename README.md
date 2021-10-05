@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Karaokê da Gi 19
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Acesse o karaokê pelo link: `https://gi-karaoke.herokuapp.com/`
 
-## Available Scripts
+Página de administração do Karaokê: `https://gi-karaoke.herokuapp.com/admin`
 
-In the project directory, you can run:
+## Motivação:
 
-### `npm start`
+Minha irmã fez uma festa de aniversário no dia 02/10/2021. Ela me disse que na festa iria ter um karaokê onde os convidados cantariam em um microfone conectado a um amplificador, e as músicas e letras estariam passando no Youtube da televisão.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Com um grande número de convidados, certamente seria difícil organizar esse karaokê. Quem canta com quem? Quais músicas estão na lista? Qual a próxima música?
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Esse problema pode ser resolvido de diversas maneiras, inclusive com fichas de papel preenchidas com as solicitações de músicas dos convidados. O problema é que essa abordagem não dá visibilidade da fila em tempo real, nem torna muito fácil o processo de pedir para cantar no karaokê.
 
-### `npm test`
+Sendo assim, pensei em desenvolver uma aplicação web para resolver esse problema. Nela, os convidados poderiam acompanhar a fila em tempo real e pedir músicas direto dos browsers dos smartphones pessoais. Por conta da restrição de tempo, as implementações buscaram **resolver o problema com pouco esforço de desenvolvimento**.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## O que foi feito:
 
-### `npm run build`
+A aplicação é simples. Ela apresenta uma fila de solicitações de músicas no karaokê e a música que está tocando no momento. A estilização do site tenta lembrar os anos 2000, que era o tema da festa. Minha preocupação com o design foi lembrar a web 1.0 o máximo possível.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Imagem inicial site](/assets/Fig1.jpg "Imagem inicial site")
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Além disso, a aplicação disponibiliza uma página de administração onde minha irmã conseguiria passar para a próxima música e reverter a ação em caso de engano. Essa tela tem visual simples. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Só quem conhecia essa tela era minha irmã. Isso foi fundamental já que a aplicação não tinha RBAC nem nada parecido, e qualquer um com conhecimento a esse link poderia alterar o karaokê. **Novamente, a ideia aqui foi manter simplicidade, e essa solução atendia a festa com pouco esforço**.
 
-### `npm run eject`
+![Imagem admin](/assets/Fig2.jpg "Imagem admin")
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Como foi feito:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+A lista de solicitações de músicas é mantida em uma estrutura de fila. As músicas em execução são mantidas em uma pilha. Isso permite que a função de reverter da tela de administração devolva músicas da pilha de volta para a fila.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Spring Boot: Framework selecionado para o backend. Essa é minha zona de conforto. JUnit 4 para os testes unitários.
+2. **Não utilizei banco de dados**: Optei por manter os dados em memória por simplicidade. Ainda, a aplicação é suportada por uma única instância de servidor.
+3. React: Framework selecionado para o frontend. Utilizei componentes da biblioteca [Ant Design](https://ant.design/components/overview/).
+4. Comunicação: REST para as consultas e escritas das solicitações de músicas. Websockets foram usadas para atualizar os browsers dos convidados toda vez que a fila for atualizada.
+5. Heroku: Plataforma utilizada para hospedar a aplicação. Selecionada por ser gratuita, e ter um hook que permite o redeploy toda vez que o código for atualizado na master.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Conclusão
 
-## Learn More
+A festa foi um sucesso, e a aplicação foi muito util. O sentimento geral foi que a facilidade no cadastro das músicas estimulou as pessoas a cadastrar mais músicas (as vezes até por impulso). 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Não tivemos problemas técnicos nem bugs encontrados durante a festa. Mesmo com a limitação de tempo tive a preocupação de escrever vários testes unitários importantes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**A melhor parte de ser desenvolvedor é poder colocar ideias em prática com pouco tempo e recursos.**
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
