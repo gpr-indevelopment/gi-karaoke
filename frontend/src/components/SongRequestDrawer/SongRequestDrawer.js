@@ -6,7 +6,7 @@ function SongRequestDrawer(props) {
     <Drawer
       title="Pedir música"
       placement="right"
-      onClose={props.onDrawerClose}
+      onClose={props.onClose}
       visible={props.isVisible}
       width={window.innerWidth > 900 ? 500 : window.innerWidth - 100}
     >
