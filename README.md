@@ -1,9 +1,10 @@
 # Karaokê da Gi 19
 
-Acesse o karaokê pelo link: `https://gi-karaoke.herokuapp.com/`
+## Acesse o [karaokê](https://gi-karaoke.herokuapp.com/).
 
-Página de administração do Karaokê: `https://gi-karaoke.herokuapp.com/admin`
+## Página de [administração](https://gi-karaoke.herokuapp.com/admin) do Karaokê.
 
+---
 ## Motivação:
 
 Minha irmã fez uma festa de aniversário no dia 02/10/2021. Ela me disse que na festa iria ter um karaokê onde os convidados cantariam em um microfone conectado a um amplificador, e as músicas e letras estariam passando no Youtube da televisão.
