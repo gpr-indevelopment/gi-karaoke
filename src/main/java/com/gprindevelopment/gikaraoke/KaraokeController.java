@@ -1,7 +1,6 @@
 package com.gprindevelopment.gikaraoke;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,18 +19,18 @@ public class KaraokeController {
 
     private final KaraokeQueueService karaokeQueueService;
 
-    private final SimpMessagingTemplate simpMessagingTemplate;
+    private final PushNotificationService pushNotificationService;
 
-    public KaraokeController(KaraokeQueueService karaokeQueueService, SimpMessagingTemplate simpMessagingTemplate) {
+    public KaraokeController(KaraokeQueueService karaokeQueueService, PushNotificationService pushNotificationService) {
         this.karaokeQueueService = karaokeQueueService;
-        this.simpMessagingTemplate = simpMessagingTemplate;
+        this.pushNotificationService = pushNotificationService;
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addSong(@RequestBody SongRequest songRequest) {
         karaokeQueueService.addSong(songRequest);
-        simpMessagingTemplate.convertAndSend("/topic/update", "Update!");
+        pushNotificationService.pushFrontendUpdate();
     }
 
     @GetMapping
@@ -49,12 +48,12 @@ public class KaraokeController {
     @PostMapping(path = "/revert")
     public void revert() {
         karaokeQueueService.revert();
-        simpMessagingTemplate.convertAndSend("/topic/update", "Update!");
+        pushNotificationService.pushFrontendUpdate();
     }
 
     @PostMapping("/next-song")
     public void nextSong() {
         karaokeQueueService.playNextSong();
-        simpMessagingTemplate.convertAndSend("/topic/update", "Update!");
+        pushNotificationService.pushFrontendUpdate();
     }
 }
