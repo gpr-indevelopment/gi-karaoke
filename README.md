@@ -39,7 +39,7 @@ A lista de solicitações de músicas é mantida em uma estrutura de fila. As m�
 
 ## Conclusão
 
-A festa foi um sucesso, e a aplicação foi muito util. O sentimento geral foi que a facilidade no cadastro das músicas estimulou as pessoas a cadastrar mais músicas (as vezes até por impulso). 
+A festa foi um sucesso, e a aplicação foi muito útil. O sentimento geral foi que a facilidade no cadastro das músicas estimulou as pessoas a cadastrar mais músicas (as vezes até por impulso). 
 
 Não tivemos problemas técnicos nem bugs encontrados durante a festa. Mesmo com a limitação de tempo tive a preocupação de escrever vários testes unitários importantes.
 
