@@ -1,8 +1,8 @@
 # Karaokê da Gi 19
 
-## Acesse o [karaokê](https://gi-karaoke.herokuapp.com/).
+### Acesse o [karaokê](https://gi-karaoke.herokuapp.com/).
 
-## Página de [administração](https://gi-karaoke.herokuapp.com/admin) do Karaokê.
+### Página de [administração](https://gi-karaoke.herokuapp.com/admin) do Karaokê.
 
 ---
 ## Motivação:
